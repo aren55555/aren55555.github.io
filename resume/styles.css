@@ -44,6 +44,10 @@
     font-weight: bold;
 }
 
+.print-only a {
+    text-decoration: underline;
+}
+
 @media screen {
     .print-only {
         display: none;
