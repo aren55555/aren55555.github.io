@@ -37,10 +37,9 @@
 
 .print-only {
     border-radius: 5px;
-    background-color: rgb(200, 200, 200);
     border: 1px solid rgb(96, 96, 96);
-    padding: 1em;
-    margin-bottom: .5em;
+    padding: .5em;
+    margin-bottom: 1em;
     text-align: center;
     font-weight: bold;
 }
