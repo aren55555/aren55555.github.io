@@ -23,6 +23,14 @@
 
 		<!-- Custom CSS -->
 		<style type="text/css">
+			@media print {
+				.print-only {
+					display: block;
+				}
+			}
+			.print-only {
+				display: none;
+			}
 				.text-center {
 					text-align: center;
 				}
@@ -102,6 +110,9 @@
 	</head>
 	<body>
 		<div class="container">
+			<div class="print-only alert">
+				
+			</div>
 			<div class="page-header">
 				<div class="media">
 				  <a class="pull-left" href="#">
