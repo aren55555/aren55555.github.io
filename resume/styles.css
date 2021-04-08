@@ -71,6 +71,7 @@
     .page-header {
         margin-top: 0;
         margin-bottom: 10px;
+        padding-bottom: 0;
     }
     .page-header .profileImage {
         height: 50px;
