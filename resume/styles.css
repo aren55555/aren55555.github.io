@@ -55,6 +55,9 @@
 }
 
 @media print {
+    .hide-print {
+        display: none;
+    }
     .fa {
         display: none;
     }
