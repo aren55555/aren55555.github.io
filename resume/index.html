@@ -98,12 +98,26 @@
       <h3>Work History</h3>
 
       <h4>
+        Head of Engineering
+        <small>
+          <a href="https://pallet.com/">Pallet</a>
+        </small>
+      </h4>
+      <p class="workDate text-muted"><small>August 2024 - Present</small></p>
+      <ul>
+        <li>Manage and grow a team of ~20 engineers, all directly recruited and hired</li>
+        <li>Architected a distributed agent delivery platform for orchestrating AI agents across large-scale logistics workflows</li>
+        <li>Established engineering culture emphasizing rapid iteration, collaborative ownership, and accountability; team operates fully in-person</li>
+        <li>Contributed to the divestiture of Pallet's original TMS product — now <a href="https://tenet-os.com/">Tenet OS</a> — to a private equity firm</li>
+      </ul>
+
+      <h4>
         Founding Software Engineer / Principal
         <small>
           <a href="https://www.tryfinch.com/">Finch</a> (YC S20)
         </small>
       </h4>
-      <p class="workDate text-muted"><small>July 2021 - Present</small></p>
+      <p class="workDate text-muted"><small>July 2021 - August 2024</small></p>
       <ul>
         <li>Built out the core services of Finch (Plaid for HR)</li>
         <li>Built our Developer onboarding experience automating sign-ups and product configuration</li>
@@ -436,6 +450,55 @@
       <hr />
 
       <h3>Personal Projects</h3>
+
+      <div class="row project">
+        <div class="col-sm-8">
+          <h4 class="media-heading">
+            txtshr
+            <small
+              ><a href="https://github.com/aren55555/txtshr"
+                ><i
+                  class="fa fa-external-link"
+                  data-url="https://github.com/aren55555/txtshr"
+                ></i></a
+            ></small>
+          </h4>
+          <ul>
+            <li>
+              A secure, zero-knowledge text-sharing tool — the server never sees
+              your text or passphrase
+            </li>
+            <li>
+              CLI encrypts text locally with AES-256-GCM (key derived via
+              PBKDF2-SHA256, 600k iterations) and produces a shareable URL; the
+              recipient decrypts entirely in-browser via the Web Crypto API
+            </li>
+            <li>
+              Encrypted payload lives in the URL fragment (<code>#</code>),
+              which browsers never transmit to the server per RFC 3986
+            </li>
+            <li>
+              Supports custom ES-module renderers (Markdown, code highlighting,
+              charts, etc.)
+            </li>
+            <li>
+              Installable via <code>brew install aren55555/tap/txtshr</code>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <a
+            class="make-fancy-box"
+            href="img/txtshr.png"
+            title="txtshr"
+          >
+            <img
+              class="img-rounded img-thumbnail elastic-img"
+              src="img/txtshr.png"
+            />
+          </a>
+        </div>
+      </div>
 
       <div class="row project">
         <div class="col-sm-8">
