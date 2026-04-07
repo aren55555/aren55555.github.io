@@ -3,7 +3,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Quantico', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 code, pre, kbd, samp, tt {
@@ -95,7 +95,9 @@ code, pre, kbd, samp, tt {
     body {
         font-size: 11px;
     }
-    .hide-print {
+    .hide-print,
+    .collapse.hide-print,
+    .collapse.in.hide-print {
         display: none;
     }
     .fa {
