@@ -55,6 +55,9 @@
 }
 
 @media print {
+    body {
+        font-size: 11px;
+    }
     .hide-print {
         display: none;
     }
@@ -62,14 +65,18 @@
         display: none;
     }
     hr {
-        margin: 5px 0 5px 0;
+        margin: 3px 0;
     }
-    h3 {
-        margin-top: 10px;
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+    .workDate {
+        margin-top: -5px;
     }
     .project {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     .elastic-img,
     .print-hidden {
@@ -77,13 +84,13 @@
     }
     .page-header {
         margin-top: 0;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         padding-bottom: 0;
     }
     .page-header .profileImage {
         height: 49px;
         width: 49px;
-        margin-bottom: 5px;
+        margin-bottom: 3px;
         margin-right: 5px;
     }
     .page-header .socialLinks {
@@ -93,10 +100,22 @@
         margin-top: 0;
     }
     ul {
-        padding-left: 20px;
-        margin-bottom: 8px;
+        padding-left: 16px;
+        margin-bottom: 4px;
+        margin-top: 2px;
+    }
+    li {
+        margin-bottom: 1px;
     }
     p {
-        margin-bottom: 8px;
+        margin-bottom: 4px;
     }
+    .row {
+        margin-bottom: 0;
+    }
+    h1 { font-size: 20px; }
+    h2 { font-size: 16px; }
+    h3 { font-size: 13px; }
+    h4 { font-size: 12px; }
+    h5, h6 { font-size: 11px; }
 }
