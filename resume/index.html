@@ -43,9 +43,18 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
+      <div class="print-banner hide-print" onclick="window.print()" style="cursor:pointer">
+        Pretty when printed &mdash; press <span id="print-shortcut"><kbd class="key">&#8984;</kbd> + <kbd class="key">P</kbd></span>
+      </div>
+      <script>
+        if (!/Mac|iPhone|iPad|iPod/.test(navigator.platform)) {
+          document.getElementById('print-shortcut').innerHTML = '<kbd class="key">CTRL</kbd> + <kbd class="key">P</kbd>';
+        }
+      </script>
       <div class="print-web-info">
         <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
           <img src="img/qr-resume.svg" alt="QR code for resume.arenpatel.com" style="width: 60px; height: 60px;" />
