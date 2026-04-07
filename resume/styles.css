@@ -156,3 +156,12 @@ code, pre, kbd, samp, tt {
     h4 { font-size: 12px; }
     h5, h6 { font-size: 11px; }
 }
+
+.collapse-toggle .fa-chevron-down {
+    transition: transform 0.25s ease;
+    display: inline-block;
+}
+
+.collapse-toggle.collapsed .fa-chevron-down {
+    transform: rotate(-90deg);
+}
