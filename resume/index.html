@@ -59,9 +59,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
   <body style="opacity:0">
-    <button id="dark-mode-toggle" aria-label="Toggle dark mode">
-      <i class="fa-solid fa-moon"></i>
-    </button>
     <script>
       // Apply saved preference before paint to avoid flash
       if (localStorage.getItem('darkMode') === 'true') {
@@ -74,9 +71,15 @@
         document.body.style.opacity = '1';
       });
     </script>
-    <div class="print-banner hide-print" onclick="window.print()" style="cursor:pointer">
-      Pretty when printed &mdash; press <span id="print-shortcut"><kbd class="key">&#8984;</kbd> + <kbd class="key">P</kbd></span>
+    <div class="print-banner hide-print" style="display:flex; align-items:center; justify-content:center; position:relative;">
+      <span onclick="window.print()" style="cursor:pointer;">Pretty when printed &mdash; press <span id="print-shortcut"><kbd class="key">&#8984;</kbd> + <kbd class="key">P</kbd></span></span>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode" style="position:absolute; right:12px;">
+        <i class="fa-solid fa-moon"></i>
+      </button>
     </div>
+    <button id="dark-mode-toggle-mobile" aria-label="Toggle dark mode">
+      <i class="fa-solid fa-moon"></i>
+    </button>
     <div class="container">
       <script>
         if (!/Mac|iPhone|iPad|iPod/.test(navigator.platform)) {
@@ -757,19 +760,23 @@
       });
     </script>
     <script>
-      const toggle = document.getElementById('dark-mode-toggle');
-      const icon = toggle.querySelector('i');
-      function updateIcon() {
+      const toggles = [
+        document.getElementById('dark-mode-toggle'),
+        document.getElementById('dark-mode-toggle-mobile')
+      ];
+      function updateIcons() {
         const dark = document.body.classList.contains('dark-mode');
-        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        toggles.forEach(t => {
+          t.querySelector('i').className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        });
       }
-      updateIcon();
-      toggle.addEventListener('click', function() {
+      updateIcons();
+      toggles.forEach(t => t.addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
         const dark = document.body.classList.contains('dark-mode');
         localStorage.setItem('darkMode', dark);
-        updateIcon();
-      });
+        updateIcons();
+      }));
     </script>
   </body>
 </html>

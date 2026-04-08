@@ -150,18 +150,49 @@ body.dark-mode .uw-bar-text {
 }
 
 /* Dark mode toggle button */
-#dark-mode-toggle {
+#dark-mode-toggle-mobile {
+    display: none;
     position: fixed;
-    top: 12px;
-    right: 16px;
+    bottom: 20px;
+    right: 20px;
     z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s, color 0.2s;
+}
+
+body.dark-mode #dark-mode-toggle-mobile {
+    background: #2a2a2a;
+    border-color: #555;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    #dark-mode-toggle-mobile {
+        display: flex;
+    }
+    #dark-mode-toggle {
+        display: none;
+    }
+}
+
+#dark-mode-toggle {
     background: none;
     border: 1px solid #ccc;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 26px;
+    height: 26px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     color: #555;
     display: flex;
     align-items: center;
@@ -170,7 +201,7 @@ body.dark-mode .uw-bar-text {
 }
 
 #dark-mode-toggle:hover {
-    background: #f0f0f0;
+    background: #e8e8e8;
 }
 
 /* Dark mode */
