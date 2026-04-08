@@ -183,6 +183,9 @@ body.dark-mode #dark-mode-toggle-mobile {
     #dark-mode-toggle {
         display: none;
     }
+    .print-banner {
+        display: none;
+    }
 }
 
 #dark-mode-toggle {
