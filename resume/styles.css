@@ -108,7 +108,10 @@ code, pre, kbd, samp, tt {
         display: none;
     }
     .print-banner {
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
         padding: 8px;
         margin-bottom: 12px;
         background-color: #f5f5f5;
@@ -130,6 +133,18 @@ code, pre, kbd, samp, tt {
         font-size: 12px;
         line-height: 1.6;
         color: #333;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .print-banner {
+        display: none;
+    }
+    #dark-mode-toggle {
+        display: none;
+    }
+    #dark-mode-toggle-mobile {
+        display: flex;
     }
 }
 
@@ -176,17 +191,6 @@ body.dark-mode #dark-mode-toggle-mobile {
     color: #aaa;
 }
 
-@media (max-width: 768px) {
-    #dark-mode-toggle-mobile {
-        display: flex;
-    }
-    #dark-mode-toggle {
-        display: none;
-    }
-    .print-banner {
-        display: none;
-    }
-}
 
 #dark-mode-toggle {
     background: none;
