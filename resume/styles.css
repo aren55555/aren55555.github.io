@@ -2,6 +2,48 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.make-fancy-box {
+    display: block;
+    position: relative;
+    cursor: zoom-in;
+}
+
+.project-img-col {
+    overflow: hidden;
+}
+
+.make-fancy-box img {
+    transition: opacity 0.2s ease;
+}
+
+.make-fancy-box:hover img {
+    opacity: 0.75;
+}
+
+ul, ol {
+    padding-left: 28px;
+}
+
+.tag-cloud {
+    font-size: 0.75em;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #aaa;
+    padding: 0 8px;
+    margin-top: -6px;
+    margin-bottom: 4px;
+}
+
+.job-header {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.job-header h4 {
+    margin-bottom: 0;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
 }
@@ -26,8 +68,9 @@ code, pre, kbd, samp, tt {
 }
 
 .workDate {
-    margin-top: -10px;
-    margin-bottom: 2px;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 6px;
 }
 
 .socialLinks a {
@@ -69,8 +112,7 @@ code, pre, kbd, samp, tt {
         padding: 8px;
         margin-bottom: 12px;
         background-color: #f5f5f5;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+        border-bottom: 1px solid #ddd;
         font-size: 13px;
         color: #555;
     }
@@ -110,9 +152,7 @@ code, pre, kbd, samp, tt {
         margin-top: 5px;
         margin-bottom: 3px;
     }
-    .workDate {
-        margin-top: -5px;
-    }
+
     .project {
         margin-top: 5px;
         margin-bottom: 5px;

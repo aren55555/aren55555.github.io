@@ -10,7 +10,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <!-- Add fancyBox main CSS -->
     <link
@@ -45,11 +45,17 @@
     <![endif]-->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body style="opacity:0">
+    <script>
+      document.fonts.ready.then(function() {
+        document.body.style.transition = 'opacity 0.4s ease';
+        document.body.style.opacity = '1';
+      });
+    </script>
+    <div class="print-banner hide-print" onclick="window.print()" style="cursor:pointer">
+      Pretty when printed &mdash; press <span id="print-shortcut"><kbd class="key">&#8984;</kbd> + <kbd class="key">P</kbd></span>
+    </div>
     <div class="container">
-      <div class="print-banner hide-print" onclick="window.print()" style="cursor:pointer">
-        Pretty when printed &mdash; press <span id="print-shortcut"><kbd class="key">&#8984;</kbd> + <kbd class="key">P</kbd></span>
-      </div>
       <script>
         if (!/Mac|iPhone|iPad|iPod/.test(navigator.platform)) {
           document.getElementById('print-shortcut').innerHTML = '<kbd class="key">CTRL</kbd> + <kbd class="key">P</kbd>';
@@ -74,19 +80,19 @@
             <p class="contacts"></p>
             <p class="socialLinks">
               <a href="https://www.facebook.com/aren.patel"
-                ><i class="fa fa-facebook fa-lg"></i
+                ><i class="fa-brands fa-facebook fa-lg"></i
               ></a>
               <a href="https://www.twitter.com/aren55555"
-                ><i class="fa fa-twitter fa-lg"></i
+                ><i class="fa-brands fa-x-twitter fa-lg"></i
               ></a>
               <a href="https://www.linkedin.com/in/arenpatel/"
-                ><i class="fa fa-linkedin fa-lg"></i
+                ><i class="fa-brands fa-linkedin fa-lg"></i
               ></a>
               <a href="https://www.github.com/aren55555"
-                ><i class="fa fa-github fa-lg"></i
+                ><i class="fa-brands fa-github fa-lg"></i
               ></a>
               <a href="http://www.arenpatel.com/"
-                ><i class="fa fa-globe fa-lg"></i
+                ><i class="fa-solid fa-globe fa-lg"></i
               ></a>
             </p>
           </div>
@@ -97,19 +103,21 @@
       <p>
         Player-coach engineering leader with a YC acquisition under my belt — BufferBox, acquired by Google while I was still a student — and a track record of rescuing chaotic codebases and building high-performing engineering cultures at early-stage companies. Currently Head of Engineering at Pallet, leading ~20 engineers building AI automation for logistics. I'm drawn to the early innings: the messier the system, the more satisfying the fix.
       </p>
-      <p class="text-muted" style="font-size: 0.85em; font-family: 'JetBrains Mono', monospace;">TypeScript &middot; Go &middot; Ruby &middot; Dart &middot; Python &middot; gRPC &middot; SQL &middot; Redis &middot; GCP &middot; AWS</p>
+      <p class="text-muted tag-cloud">TypeScript &middot; Go &middot; Ruby &middot; Dart &middot; Python &middot; gRPC &middot; SQL &middot; Redis &middot; GCP &middot; AWS</p>
 
       <hr />
 
       <h3>Work History</h3>
 
-      <h4>
-        Head of Engineering
-        <small>
-          <a href="https://pallet.com/">Pallet</a>
-        </small>
-      </h4>
-      <p class="workDate text-muted"><small>August 2024 - Present</small></p>
+      <div class="job-header">
+        <h4>
+          Head of Engineering
+          <small>
+            <a href="https://pallet.com/">Pallet</a>
+          </small>
+        </h4>
+        <p class="workDate text-muted"><small>August 2024 - Present</small></p>
+      </div>
       <ul>
         <li>Built and manage a team of ~20 engineers, personally involved in hiring each one</li>
         <li>Architected a distributed agent delivery platform for orchestrating AI agents across large-scale logistics workflows</li>
@@ -117,34 +125,34 @@
         <li>Contributed to the divestiture of Pallet's original TMS product — now <a href="https://tenet-os.com/">Tenet OS</a> — to a private equity firm</li>
       </ul>
 
-      <h4>
-        Founding Software Engineer / Principal
-        <small>
-          <a href="https://www.tryfinch.com/">Finch</a> (YC S20)
-        </small>
-      </h4>
-      <p class="workDate text-muted"><small>July 2021 - August 2024</small></p>
+      <div class="job-header">
+        <h4>
+          Founding Software Engineer / Principal
+          <small>
+            <a href="https://www.tryfinch.com/">Finch</a> (YC S20)
+          </small>
+        </h4>
+        <p class="workDate text-muted"><small>July 2021 - August 2024</small></p>
+      </div>
       <ul>
-        <li>Built out the core services of Finch (Plaid for HR)</li>
-        <li>Built our Developer onboarding experience automating sign-ups and product configuration</li>
-        <li>Designed and built our Asynchronous job scheduling and workload platform</li>
-        <li>Leveraged tools like Sentry and DataDog to bring a culture of observability and measurement to our Product & Engineering org</li>
-        <li>Worked with our legal counsel to craft our policies, terms of services, and GDPR commitments</li>
-        <li>Led our security team to improve access auditing and token security (JWTs)</li>
-        <li>Designed a generic system to perform targetted rollouts using Unleash feature flagging</li>
-        <li>Grew our engineering team from 2 to 25, mentored and coached newer engineers</li>
-        <li>Developed a culture of quality by introducing unit and integration test patterns</li>
+        <li>Built Finch's core platform from scratch — services, async job scheduling, and a feature-flagging rollout system</li>
+        <li>Shipped the developer onboarding experience, automating sign-ups and product configuration end-to-end</li>
+        <li>Established observability and quality culture across Engineering using Sentry, DataDog, and integrated test patterns</li>
+        <li>Led security and compliance: access auditing, JWT token hardening, GDPR policies, and legal terms</li>
+        <li>Grew the engineering team from 2 to 25; mentored engineers at every level as the org scaled</li>
       </ul>
 
-      <h4>
-        Staff Software Engineer (L6)
-        <small>
-          <a href="https://www.google.com/">Google</a> /
-          <a href="https://area120.google.com/">Area 120</a> /
-          <a href="https://www.orion.area120.com/">Orion Wi-Fi</a>
-        </small>
-      </h4>
-      <p class="workDate text-muted"><small>August 2019 - July 2021</small></p>
+      <div class="job-header">
+        <h4>
+          Staff Software Engineer (L6)
+          <small>
+            <a href="https://www.google.com/">Google</a> /
+            <a href="https://area120.google.com/">Area 120</a> /
+            <a href="https://www.orion.area120.com/">Orion Wi-Fi</a>
+          </small>
+        </h4>
+        <p class="workDate text-muted"><small>August 2019 - July 2021</small></p>
+      </div>
       <ul>
         <li>
           <a href="https://www.orion.area120.com/">Orion Wi-Fi</a> is a team
@@ -165,63 +173,42 @@
         </li>
       </ul>
 
-      <h4>
-        Software Engineer
-        <small
-          ><a href="https://www.google.com/">Google</a> /
-          <a href="https://www.nest.com/">Nest</a></small
-        >
-      </h4>
-      <p class="workDate text-muted"><small>July 2014 - August 2019</small></p>
+      <div class="job-header">
+        <h4>
+          Software Engineer
+          <small
+            ><a href="https://www.google.com/">Google</a> /
+            <a href="https://www.nest.com/">Nest</a></small
+          >
+        </h4>
+        <p class="workDate text-muted"><small>July 2014 - August 2019</small></p>
+      </div>
       <ul>
         <li>
-          TL for the
-          <a
-            href="https://www.blog.google/products/google-nest/its-time-nest-users-can-now-switch-google-accounts/"
-            >Nest to Google account migration</a
-          >
-          project on <a href="https://home.nest.com/login">Nest's Login</a> pages
+          TL for the <a href="https://www.blog.google/products/google-nest/its-time-nest-users-can-now-switch-google-accounts/">Nest to Google account migration</a> and the <a href="https://myaccount.nest.com">My Account</a> GDPR data export tool
         </li>
         <li>
-          Introduced Docker containers and Kubernetes to Nest's Web Engineering
-          team
+          Authored and presented the <a href="https://codelabs.developers.google.com/codelabs/nest-camera-api">Nest Cam &amp; TensorFlow Codelab</a> at <strong>Google I/O 2017</strong> — a Python/Flask app that pulled live Nest Cam snapshots via the Works with Nest API and classified them in real-time using TensorFlow's Inception-v3 model
         </li>
         <li>
-          Technology lead for the team that built
-          <a href="https://myaccount.nest.com">Nest's My Account</a> data export
-          tool (required for the European Union's GDPR compliance)
+          Built <a href="https://workswith.nest.com">Works With Nest</a> and the <a href="https://developers.nest.com/">Nest Developers OAuth</a> platform — APIs, services, and UI/UX
         </li>
         <li>
-          Authored and presented the
-          <a
-            href="https://codelabs.developers.google.com/codelabs/nest-camera-api"
-            >Nest Cam &amp; TensorFlow Codelab</a
-          >
-          at <strong>Google I/O 2017</strong> — a Python/Flask app that pulled live Nest Cam snapshots via the Works with Nest API and classified them in real-time using TensorFlow's Inception-v3 model
-        </li>
-        <li>
-          Designed and developed a variety of apps and services to support the
-          <a href="https://developers.nest.com/">Nest Developers (OAuth)</a>
-          program
-        </li>
-        <li>
-          Built the APIs and UI/UX required to launch
-          <a href="https://workswith.nest.com">Works With Nest</a>
-        </li>
-        <li>
-          Go, Ruby on Rails, Ember.js, Vue.js, TypeScript, Percona/MySQL Server,
-          Redis, AWS, GCP, Git, nginx, OAuth, SAML, JWTs, etc.
+          Introduced Docker and Kubernetes to Nest's Web Engineering team
         </li>
       </ul>
+      <p class="text-muted tag-cloud">Go &middot; Ruby on Rails &middot; Ember.js &middot; TypeScript &middot; MySQL &middot; Redis &middot; AWS &middot; GCP &middot; Git &middot; nginx &middot; Kubernetes &middot; OAuth &middot; SAML &middot; JWTs</p>
 
-      <h4>
-        Partner Technology Manager
-        <small
-          ><a href="https://www.google.com/">Google</a> /
-          <a href="https://www.bufferbox.com/">BufferBox</a></small
-        >
-      </h4>
-      <p class="workDate text-muted"><small>May 2013 - July 2014</small></p>
+      <div class="job-header">
+        <h4>
+          Partner Technology Manager
+          <small
+            ><a href="https://www.google.com/">Google</a> /
+            <a href="https://www.bufferbox.com/">BufferBox</a></small
+          >
+        </h4>
+        <p class="workDate text-muted"><small>May 2013 - July 2014</small></p>
+      </div>
       <ul>
         <li>
           Managed technical aspects of retailers' BufferBox REST API
@@ -235,14 +222,16 @@
         </li>
       </ul>
 
-      <h4>
-        Lead Developer
-        <small
-          ><a href="https://www.bufferbox.com/">BufferBox</a> (YC S12 — acquired by
-          <a href="https://www.google.com/">Google</a>)</small
-        >
-      </h4>
-      <p class="workDate text-muted"><small>July 2012 - May 2013</small></p>
+      <div class="job-header">
+        <h4>
+          Lead Developer
+          <small
+            ><a href="https://www.bufferbox.com/">BufferBox</a> (YC S12 — acquired by
+            <a href="https://www.google.com/">Google</a>)</small
+          >
+        </h4>
+        <p class="workDate text-muted"><small>July 2012 - May 2013</small></p>
+      </div>
       <ul>
         <li>
           Responsible for design and development of <b>all</b> BufferBox web
@@ -275,16 +264,19 @@
           Earlier Experience (2009–2011) <i class="fa fa-chevron-down"></i>
         </a>
         <div id="early-experience" class="collapse">
-          <h4>
-            Business Development Intern
-            <small
-              >Xtreme Labs (acquired by
-              <a href="http://pivotallabs.com/">Pivotal Labs</a>)</small
-            >
-          </h4>
-          <p class="workDate text-muted">
-            <small>September 2011 – December 2011</small>
-          </p>
+          <div style="border-left: 5px solid #FFC72C; padding-left: 16px; margin-left: 4px; margin-top: 8px;">
+          <div class="job-header">
+            <h4>
+              Business Development Intern
+              <small
+                >Xtreme Labs (acquired by
+                <a href="http://pivotallabs.com/">Pivotal Labs</a>)</small
+              >
+            </h4>
+            <p class="workDate text-muted">
+              <small>September 2011 – December 2011</small>
+            </p>
+          </div>
           <ul>
             <li>
               Advised partners on strategy for rapidly emerging mobile platforms
@@ -297,16 +289,18 @@
             </li>
           </ul>
 
-          <h4>
-            Agile Engineer Intern
-            <small
-              >Xtreme Labs (acquired by
-              <a href="http://pivotallabs.com/">Pivotal Labs</a>)</small
-            >
-          </h4>
-          <p class="workDate text-muted">
-            <small>January 2011 – May 2011</small>
-          </p>
+          <div class="job-header">
+            <h4>
+              Agile Engineer Intern
+              <small
+                >Xtreme Labs (acquired by
+                <a href="http://pivotallabs.com/">Pivotal Labs</a>)</small
+              >
+            </h4>
+            <p class="workDate text-muted">
+              <small>January 2011 – May 2011</small>
+            </p>
+          </div>
           <ul>
             <li>Developed the Globe &amp; Mail Politics app for iPhone</li>
             <li>Contributed code to a BlackBerry OS 6 music app</li>
@@ -315,16 +309,18 @@
             </li>
           </ul>
 
-          <h4>
-            Agile Engineer Intern
-            <small
-              >Xtreme Labs (acquired by
-              <a href="http://pivotallabs.com/">Pivotal Labs</a>)</small
-            >
-          </h4>
-          <p class="workDate text-muted">
-            <small>May 2010 – September 2010</small>
-          </p>
+          <div class="job-header">
+            <h4>
+              Agile Engineer Intern
+              <small
+                >Xtreme Labs (acquired by
+                <a href="http://pivotallabs.com/">Pivotal Labs</a>)</small
+              >
+            </h4>
+            <p class="workDate text-muted">
+              <small>May 2010 – September 2010</small>
+            </p>
+          </div>
           <ul>
             <li>
               Quickly learned Ruby on Rails to build web apps and mobile backend
@@ -338,13 +334,15 @@
             </li>
           </ul>
 
-          <h4>
-            Settlements Support Intern
-            <small><a href="http://ieso.com/">IESO</a></small>
-          </h4>
-          <p class="workDate text-muted">
-            <small>September 2009 – December 2009</small>
-          </p>
+          <div class="job-header">
+            <h4>
+              Settlements Support Intern
+              <small><a href="http://ieso.com/">IESO</a></small>
+            </h4>
+            <p class="workDate text-muted">
+              <small>September 2009 – December 2009</small>
+            </p>
+          </div>
           <ul>
             <li>
               Built a system to calculate compensation for heavy load curtailment
@@ -360,12 +358,14 @@
             </li>
           </ul>
 
-          <h4>
-            Market Entry Intern <small><a href="http://ieso.com/">IESO</a></small>
-          </h4>
-          <p class="workDate text-muted">
-            <small>January 2009 – May 2009</small>
-          </p>
+          <div class="job-header">
+            <h4>
+              Market Entry Intern <small><a href="http://ieso.com/">IESO</a></small>
+            </h4>
+            <p class="workDate text-muted">
+              <small>January 2009 – May 2009</small>
+            </p>
+          </div>
           <ul>
             <li>
               Developed a database to help utilities report participation in
@@ -379,22 +379,20 @@
               Gained exposure to the operation of Ontario's electricity market
             </li>
           </ul>
+          </div><!-- end uw-internships -->
         </div>
       </div>
 
       <hr />
 
       <h3>Education</h3>
-      <div class="row project">
+      <div class="row project" style="">
         <div class="col-sm-8">
           <p>
             Bachelor of Applied Science, Honours Electrical Engineering,
             University of Waterloo
           </p>
-          <p>
-            <strong>Specializations:</strong> Software Development, Artificial
-            Intelligence, Communications &amp; Network Security, Cryptography
-          </p>
+          <p class="text-muted tag-cloud">Software Development &middot; Artificial Intelligence &middot; Communications &amp; Network Security &middot; Cryptography</p>
 
           <h4 class="media-heading">
             Fourth Year Design Project <small>Unlockly</small>
@@ -414,24 +412,14 @@
               <small
                 ><a
                   href="http://s3.amazonaws.com/UWPublications/Imprint/2012-13_v35/Imprint_2012-07-27_v35_i07.pdf"
-                  >Page 17 <i class="fa fa-external-link"></i></a
-              ></small>
-            </li>
-            <li>
-              Discontinued hosting in 2017
-              <small
-                ><a href="https://unlockly.herokuapp.com/"
-                  ><i
-                    class="fa fa-external-link"
-                    data-url="http://myteam2014.com/"
-                  ></i></a
+                  >Page 17 <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a
               ></small>
             </li>
           </ul>
         </div>
-        <div class="col-sm-4">
-          <a class="make-fancy-box" href="img/unlockly.png" title="Unlockly">
-            <img class="elastic-img" src="img/unlockly.png" />
+        <div class="col-sm-4 project-img-col">
+          <a class="make-fancy-box" href="img/unlockly.png" title="Unlockly" style="display:block;">
+            <img src="img/unlockly.png" style="width:100%; height:200px; object-fit:cover; object-position:top;" />
           </a>
         </div>
       </div>
@@ -440,14 +428,14 @@
 
       <h3>Personal Projects</h3>
 
-      <div class="row project">
+      <div class="row project" style="">
         <div class="col-sm-8">
           <h4 class="media-heading">
             txtshr
             <small
               ><a href="https://github.com/aren55555/txtshr"
                 ><i
-                  class="fa fa-external-link"
+                  class="fa-solid fa-arrow-up-right-from-square fa-xs"
                   data-url="https://github.com/aren55555/txtshr"
                 ></i></a
             ></small>
@@ -475,28 +463,21 @@
             </li>
           </ul>
         </div>
-        <div class="col-sm-4">
-          <a
-            class="make-fancy-box"
-            href="img/txtshr.png"
-            title="txtshr"
-          >
-            <img
-              class="img-rounded img-thumbnail elastic-img"
-              src="img/txtshr.png"
-            />
+        <div class="col-sm-4 project-img-col">
+          <a class="make-fancy-box" href="img/txtshr.png" title="txtshr" style="display:block;">
+            <img class="img-rounded img-thumbnail" src="img/txtshr.png" style="width:100%; height:200px; object-fit:cover; object-position:top;" />
           </a>
         </div>
       </div>
 
-      <div class="row project">
+      <div class="row project" style="">
         <div class="col-sm-8">
           <h4 class="media-heading">
             Weekly Bangers
             <small
               ><a href="https://weeklybangers.arenpatel.com/"
                 ><i
-                  class="fa fa-external-link"
+                  class="fa-solid fa-arrow-up-right-from-square fa-xs"
                   data-url="https://weeklybangers.arenpatel.com/"
                 ></i></a
             ></small>
@@ -513,16 +494,9 @@
             </li>
           </ul>
         </div>
-        <div class="col-sm-4">
-          <a
-            class="make-fancy-box"
-            href="img/weeklybangers.png"
-            title="Weekly Bangers"
-          >
-            <img
-              class="img-rounded img-thumbnail elastic-img"
-              src="img/weeklybangers.png"
-            />
+        <div class="col-sm-4 project-img-col">
+          <a class="make-fancy-box" href="img/weeklybangers.png" title="Weekly Bangers" style="display:block;">
+            <img class="img-rounded img-thumbnail" src="img/weeklybangers.png" style="width:100%; height:200px; object-fit:cover; object-position:top;" />
           </a>
         </div>
       </div>
@@ -534,7 +508,7 @@
             <small
               ><a href="https://chromewebstore.google.com/detail/appapi-version-to-github/jdaeepijmnhdooonimlnbfeghgefiphn"
                 ><i
-                  class="fa fa-external-link"
+                  class="fa-solid fa-arrow-up-right-from-square fa-xs"
                   data-url="https://chromewebstore.google.com/detail/appapi-version-to-github/jdaeepijmnhdooonimlnbfeghgefiphn"
                 ></i></a
             ></small>
@@ -568,7 +542,7 @@
             <small
               ><a href="https://github.com/google/jsonapi"
                 ><i
-                  class="fa fa-external-link"
+                  class="fa-solid fa-arrow-up-right-from-square fa-xs"
                   data-url="https://github.com/google/jsonapi"
                 ></i></a
             ></small>
@@ -625,7 +599,7 @@
       </a>
       <div id="early-projects" class="collapse hide-print">
 
-      <div class="row project">
+      <div class="row project" style="">
         <div class="col-sm-8">
           <h4 class="media-heading">CampusMeme</h4>
           <ul>
@@ -634,29 +608,11 @@
               life
             </li>
             <li>Scaled to handle 10k+ uniques in a month at site's peak</li>
-            <li>
-              Discontinued hosting in 2018
-              <small
-                ><a href="http://campus-meme.com/"
-                  ><i
-                    class="fa fa-external-link"
-                    data-url="http://campus-meme.com/"
-                  ></i></a
-              ></small>
-            </li>
           </ul>
         </div>
-        <div class="col-sm-4">
-          <a
-            class="make-fancy-box"
-            rel="gallery-campusmeme"
-            href="img/campusmeme.png"
-            title="CampusMeme Homepage (1/3)"
-          >
-            <img
-              class="img-rounded img-thumbnail elastic-img"
-              src="img/campusmeme.png"
-            />
+        <div class="col-sm-4 project-img-col">
+          <a class="make-fancy-box" rel="gallery-campusmeme" href="img/campusmeme.png" title="CampusMeme Homepage (1/3)" style="display:block;">
+            <img class="img-rounded img-thumbnail" src="img/campusmeme.png" style="width:100%; height:200px; object-fit:cover; object-position:top;" />
           </a>
           <a
             class="make-fancy-box"
@@ -676,7 +632,7 @@
         </div>
       </div>
 
-      <div class="row project">
+      <div class="row project" style="">
         <div class="col-sm-8">
           <h4 class="media-heading">MyTeam2014</h4>
           <ul>
@@ -689,29 +645,11 @@
               sharing, etc)
             </li>
             <li>Scraped NHL.com for player information, images and stats</li>
-            <li>
-              Discontinued hosting in 2017
-              <small
-                ><a href="http://myteam2014.com/"
-                  ><i
-                    class="fa fa-external-link"
-                    data-url="http://myteam2014.com/"
-                  ></i></a
-              ></small>
-            </li>
           </ul>
         </div>
-        <div class="col-sm-4">
-          <a
-            class="make-fancy-box"
-            rel="gallery-myteam2014"
-            href="img/myteam2014.png"
-            title="MyTeam2014 Homepage (1/3)"
-          >
-            <img
-              class="img-rounded img-thumbnail elastic-img"
-              src="img/myteam2014.png"
-            />
+        <div class="col-sm-4 project-img-col">
+          <a class="make-fancy-box" rel="gallery-myteam2014" href="img/myteam2014.png" title="MyTeam2014 Homepage (1/3)" style="display:block;">
+            <img class="img-rounded img-thumbnail" src="img/myteam2014.png" style="width:100%; height:200px; object-fit:cover; object-position:top;" />
           </a>
           <a
             class="make-fancy-box hidden"
