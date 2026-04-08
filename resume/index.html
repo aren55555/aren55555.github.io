@@ -59,6 +59,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
   <body style="opacity:0">
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <script>
+      // Apply saved preference before paint to avoid flash
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+    </script>
     <script>
       document.fonts.ready.then(function() {
         document.body.style.transition = 'opacity 0.4s ease';
@@ -278,8 +287,8 @@
         </a>
         <div id="early-experience" class="collapse">
           <div style="display:flex; gap:16px; margin-top:8px;">
-            <div style="background:#FFC72C; border-radius:4px; min-width:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0; padding: 12px 0;">
-              <span style="writing-mode:vertical-rl; transform:rotate(180deg); font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.6em; letter-spacing:0.15em; color:white; white-space:nowrap; text-transform:uppercase;">Co-op &middot; University of Waterloo</span>
+            <div style="background:#D4960A; border-radius:4px; min-width:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0; padding: 12px 0;">
+              <span class="uw-bar-text">Co-op &middot; University of Waterloo</span>
             </div>
             <div style="flex:1;">
           <div class="job-header">
@@ -745,6 +754,21 @@
             },
           },
         });
+      });
+    </script>
+    <script>
+      const toggle = document.getElementById('dark-mode-toggle');
+      const icon = toggle.querySelector('i');
+      function updateIcon() {
+        const dark = document.body.classList.contains('dark-mode');
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      updateIcon();
+      toggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const dark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', dark);
+        updateIcon();
       });
     </script>
   </body>

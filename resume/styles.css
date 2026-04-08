@@ -133,6 +133,126 @@ code, pre, kbd, samp, tt {
     }
 }
 
+.uw-bar-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.6em;
+    letter-spacing: 0.15em;
+    color: #fff;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+body.dark-mode .uw-bar-text {
+    color: #1a1a1a;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1000;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#dark-mode-toggle:hover {
+    background: #f0f0f0;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #d4d4d4;
+}
+
+body.dark-mode #dark-mode-toggle {
+    border-color: #555;
+    color: #aaa;
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+    background: #2a2a2a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #e8e8e8;
+}
+
+body.dark-mode a {
+    color: #7ab3e0;
+}
+
+body.dark-mode a:hover {
+    color: #9ecbf0;
+}
+
+body.dark-mode hr {
+    border-color: #333;
+}
+
+body.dark-mode .text-muted {
+    color: #888 !important;
+}
+
+body.dark-mode .print-banner {
+    background-color: #222;
+    border-color: #333;
+    color: #888;
+}
+
+body.dark-mode .print-banner:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .key {
+    background-color: #2a2a2a;
+    border-color: #555;
+    box-shadow: 0 1px 0 #555;
+    color: #ccc;
+}
+
+body.dark-mode .tag-cloud {
+    color: #666;
+}
+
+body.dark-mode .img-thumbnail {
+    background-color: #222;
+    border-color: #333;
+}
+
+body.dark-mode .collapse-toggle {
+    border-color: #444 !important;
+    color: #888 !important;
+}
+
+body.dark-mode .profileImage {
+    filter: brightness(0.9);
+}
+
+body.dark-mode code {
+    background-color: #2a2a2a;
+    color: #e06c75;
+}
+
 @media print {
     body {
         font-size: 11px;
