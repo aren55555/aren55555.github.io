@@ -65,7 +65,7 @@
       const saved = localStorage.getItem('darkMode');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'true' || (saved === null && prefersDark)) {
-        document.body.classList.add('dark-mode');
+        document.body.dataset.theme = 'dark';
       }
     </script>
     <script>
@@ -76,7 +76,7 @@
     <div class="print-banner hide-print">
       <span onclick="window.print()" style="cursor:pointer;">Pretty when printed &mdash; press <span id="print-shortcut"><kbd class="key">&#8984;</kbd> + <kbd class="key">P</kbd></span></span>
       <button id="dark-mode-toggle" aria-label="Toggle dark mode" style="position:absolute; right:12px;">
-        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-moon dm-icon-moon"></i><i class="fa-solid fa-sun dm-icon-sun"></i>
       </button>
     </div>
     <div class="container">
@@ -87,7 +87,7 @@
       </script>
       <div class="print-web-info">
         <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
-          <img src="img/qr-resume.svg" alt="QR code for resume.arenpatel.com" style="width: 60px; height: 60px;" />
+          <img src="img/qr-resume.svg" alt="QR code for resume.arenpatel.com" class="qr-code" style="width: 60px; height: 60px;" />
           <span>View the extended version of this resume online at <strong>resume.arenpatel.com</strong></span>
         </div>
       </div>
@@ -100,6 +100,7 @@
             />
           </a>
           <div class="media-body">
+            <div class="name-social-group">
             <h1>Aren Patel</h1>
             <p class="contacts"></p>
             <p class="socialLinks">
@@ -118,7 +119,11 @@
               <a href="http://www.arenpatel.com/"
                 ><i class="fa-solid fa-globe fa-lg"></i
               ></a>
+              <span class="dark-mode-social-toggle">
+                <button id="dark-mode-toggle-social" aria-label="Toggle dark mode"><i class="fa-solid fa-moon fa-lg dm-icon-moon"></i><i class="fa-solid fa-sun fa-lg dm-icon-sun"></i></button>
+              </span>
             </p>
+            </div>
           </div>
         </div>
       </div>
@@ -623,7 +628,7 @@
         </div>
       </div>
 
-      <a class="text-muted collapse-toggle collapsed hide-print" data-toggle="collapse" href="#early-projects" style="font-size: 0.9em; cursor: pointer; text-decoration: none; display: inline-block; border: 1px solid #ccc; border-radius: 4px; padding: 3px 10px;">
+      <a class="text-muted collapse-toggle collapsed hide-print" data-toggle="collapse" href="#early-projects" style="font-size: 0.9em; cursor: pointer; text-decoration: none; border: 1px solid #ccc; border-radius: 4px; padding: 3px 10px;">
         Earlier Projects <i class="fa fa-chevron-down"></i>
       </a>
       <div id="early-projects" class="collapse hide-print">
@@ -759,27 +764,15 @@
       });
     </script>
     <button id="dark-mode-toggle-mobile" aria-label="Toggle dark mode">
-      <i class="fa-solid fa-moon"></i>
+      <i class="fa-solid fa-moon dm-icon-moon"></i><i class="fa-solid fa-sun dm-icon-sun"></i>
     </button>
     <script>
-      const toggles = [
-        document.getElementById('dark-mode-toggle'),
-        document.getElementById('dark-mode-toggle-mobile')
-      ].filter(Boolean);
-      function updateIcons() {
-        const dark = document.body.classList.contains('dark-mode');
-        toggles.forEach(t => {
-          t.querySelector('i').className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-        });
-      }
       const toggleDark = () => {
-        document.body.classList.toggle('dark-mode');
-        const dark = document.body.classList.contains('dark-mode');
+        const dark = document.body.dataset.theme !== 'dark';
+        document.body.dataset.theme = dark ? 'dark' : 'light';
         localStorage.setItem('darkMode', dark);
-        updateIcons();
       };
-      updateIcons();
-      toggles.forEach(t => t.addEventListener('click', toggleDark));
+      document.querySelectorAll('#dark-mode-toggle, #dark-mode-toggle-mobile, #dark-mode-toggle-social').forEach(t => t.addEventListener('click', toggleDark));
       document.addEventListener('keydown', e => {
         const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform);
         if ((isMac ? e.metaKey : e.ctrlKey) && e.key === 'd') {
