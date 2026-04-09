@@ -756,11 +756,14 @@
         });
       });
     </script>
+    <button id="dark-mode-toggle-mobile" aria-label="Toggle dark mode">
+      <i class="fa-solid fa-moon"></i>
+    </button>
     <script>
       const toggles = [
         document.getElementById('dark-mode-toggle'),
         document.getElementById('dark-mode-toggle-mobile')
-      ];
+      ].filter(Boolean);
       function updateIcons() {
         const dark = document.body.classList.contains('dark-mode');
         toggles.forEach(t => {
@@ -775,8 +778,5 @@
         updateIcons();
       }));
     </script>
-    <button id="dark-mode-toggle-mobile" aria-label="Toggle dark mode">
-      <i class="fa-solid fa-moon"></i>
-    </button>
   </body>
 </html>
