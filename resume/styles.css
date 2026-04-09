@@ -1,5 +1,17 @@
 body {
     font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    opacity: 0;
+}
+
+body.fonts-loaded {
+    opacity: 1;
+    transition: opacity 0.4s ease, background-color 1s ease, color 1s ease, border-color 1s ease;
+}
+
+body.fonts-loaded *, body.fonts-loaded *::before, body.fonts-loaded *::after {
+    transition: background-color 1s ease, color 1s ease, border-color 1s ease;
 }
 
 .make-fancy-box {

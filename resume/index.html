@@ -58,7 +58,7 @@
     <![endif]-->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
-  <body style="opacity:0">
+  <body>
     <script>
       // Apply preference before paint to avoid flash
       // Explicit user choice takes priority, otherwise fall back to system preference
@@ -69,9 +69,8 @@
       }
     </script>
     <script>
-      document.fonts.ready.then(function() {
-        document.body.style.transition = 'opacity 0.4s ease';
-        document.body.style.opacity = '1';
+      document.fonts.ready.then(() => {
+        document.body.classList.add('fonts-loaded');
       });
     </script>
     <div class="print-banner hide-print">
@@ -773,13 +772,21 @@
           t.querySelector('i').className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
         });
       }
-      updateIcons();
-      toggles.forEach(t => t.addEventListener('click', function() {
+      const toggleDark = () => {
         document.body.classList.toggle('dark-mode');
         const dark = document.body.classList.contains('dark-mode');
         localStorage.setItem('darkMode', dark);
         updateIcons();
-      }));
+      };
+      updateIcons();
+      toggles.forEach(t => t.addEventListener('click', toggleDark));
+      document.addEventListener('keydown', e => {
+        const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+        if ((isMac ? e.metaKey : e.ctrlKey) && e.key === 'd') {
+          e.preventDefault();
+          toggleDark();
+        }
+      });
     </script>
   </body>
 </html>
